@@ -1,3 +1,5 @@
 sed -i 's/client_max_body_size.*/client_max_body_size 2000M/g' /etc/nginx/sites-available/default
 sed -i 's/upload_max_filesize = .*/upload_max_filesize = 2000M/g' /etc/php5/fpm/php.ini
 sed -i 's/post_max_size = .*/2000M/g' /etc/php5/fpm/php.ini
+/etc/init.d/nginx restart
+/etc/init.d/php5-fpm restart
