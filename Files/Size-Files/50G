@@ -1,5 +1,5 @@
-sed -i 's/client_max_body_size.*/client_max_body_size 50000M/g' /etc/nginx/sites-available/default
-sed -i 's/upload_max_filesize = .*/upload_max_filesize = 50000M/g' /etc/php5/fpm/php.ini
-sed -i 's/post_max_size = .*/50000M/g' /etc/php5/fpm/php.ini
+sed -i 's/client_max_body_size.*/client_max_body_size 50G/g' /etc/nginx/sites-available/default
+sed -i 's/upload_max_filesize = .*/upload_max_filesize = 50G/g' /etc/php5/fpm/php.ini
+sed -i 's/post_max_size = .*/post_max_size = 50G/g' /etc/php5/fpm/php.ini
 /etc/init.d/nginx restart
 /etc/init.d/php5-fpm restart
