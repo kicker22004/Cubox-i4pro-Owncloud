@@ -23,6 +23,7 @@ done
 clear
 
 cd Files
+chmod +x Partition
 chmod +x Install
 chmod +x Size-Files/*
 
@@ -34,9 +35,9 @@ echo -e "${yellow}"
 while true;do
     read -p "Please select install or upload limit (1,2 or 3)" abc
     case $abc in
-         [1] ) echo "${Install}"; tput sgr0; break;;
-         [2] ) echo "${Resize}"; tput sgr0; break;;
-         [3] ) echo "${Partition}"; tput sgr0; break;;
+         [1] ) "${Install}"; tput sgr0; break;;
+         [2] ) "${Resize}"; tput sgr0; break;;
+         [3] ) "${Partition}"; tput sgr0; break;;
          [EeQq]* ) echo "Thank You For Trying this out!!"; tput sgr0; exit;;
          * ) echo -e "${red}"; echo "Please Select one of the options or Exit to qu$
  esac
