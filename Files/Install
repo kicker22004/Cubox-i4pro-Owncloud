@@ -45,8 +45,8 @@ clear
 echo -e "${yellow}Move over default files"
 {
 rm /etc/nginx/sites-available/default
-cp Files/default /etc/nginx/sites-available/
-cp Files/php.ini /etc/php5/fpm/php.ini
+cp default /etc/nginx/sites-available/
+cp php.ini /etc/php5/fpm/
 } &> "${log}"
 
 #Install Owncloud
@@ -54,7 +54,7 @@ echo "${yellow}Installing Owncloud"
 wget http://download.owncloud.org/community/owncloud-6.0.2.tar.bz2
 tar xvf owncloud-6.0.2.tar.bz2
 mv owncloud/ /var/www/
-mv Files/Size-Files/* /var/www/owncloud/
+mv Size-Files/* /var/www/owncloud/
 chown -R www-data:www-data /var/www
 clear
 
