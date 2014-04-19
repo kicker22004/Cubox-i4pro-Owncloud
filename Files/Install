@@ -6,6 +6,7 @@ red='\e[0;31m'
 white='\e[1;37m'
 log='logger.txt'
 
+clear
 #Update system
 echo -e "${yellow}Updating"
 sudo apt-get update &> "${log}"
@@ -22,7 +23,6 @@ echo -e "${yellow}Making Folders"
 {
 mkdir -p /srv/http/owncloud/data
 chown www-data:www-data /srv/http/owncloud/data
-mkdir -p /var/www/owncloud
 } &> "${log}"
 
 #Grab Needed Files
@@ -47,6 +47,7 @@ echo -e "${yellow}Move over default files"
 rm /etc/nginx/sites-available/default
 cp default /etc/nginx/sites-available/
 cp php.ini /etc/php5/fpm/
+sed -i 's/listen = /var/run/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
 } &> "${log}"
 
 #Install Owncloud
