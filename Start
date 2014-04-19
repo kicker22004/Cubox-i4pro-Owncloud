@@ -1,0 +1,41 @@
+#!/bin/bash
+
+yellow='\e[1;33m'
+green='\e[1;32m'
+red='\e[0;31m'
+white='\e[1;37m'
+
+Install='./Install'
+Resize='/var/www/owncloud/./resize'
+Partition='./Partition
+
+clear
+#Demand Root.
+echo -e "${red}"
+while true;do
+    read -p "ARE YOU RUNNING THIS AS ROOT? NOT SUDO BUT "ROOT"(yes or no)" yn
+    case $yn in
+	 [Yy]* ) echo "Starting Script"; break;;
+	 [Nn]* ) echo "THIS MUST RUN AS ROOT!";tput sgr0; exit;;
+	 * ) echo "Please answer yes or no."; exit;;
+ esac
+done
+clear
+
+cd $HOME/workfolder/Files
+
+#Install or update!.
+echo "1.Install Owncloud."
+echo "2.Change Upload limit"
+echo "3.Expand Your Root (Must do if you haven't yet.)
+echo -e "${yellow}"
+while true;do
+    read -p "Please select install or upload limit (yes or no)" abc
+    case $abc in
+	 [1] ) echo "${Install}"; tput sgr0; break;;
+	 [2] ) echo "$Resize"; tput sgr0; break;;
+	 [3] ) echo "${Partition}"; tput sgr0; break;;
+	 [EeQq]* ) echo "Thank You For Trying this out!!"; tput sgr0; exit;;
+         * ) echo -e "${red}"; echo "Please Select one of the options or Exit to quit"; echo -e "${yellow}";;
+ esac
+done
