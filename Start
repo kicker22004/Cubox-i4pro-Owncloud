@@ -28,6 +28,7 @@ chmod +x Install
 chmod +x Size-Files/*
 
 #Install or update!.
+echo -e "${green}"
 echo "1.Install Owncloud."
 echo "2.Change Upload limit"
 echo "3.Expand Your Root (Must do if you haven't yet.)"
