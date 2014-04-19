@@ -66,6 +66,8 @@ cd $HOME
 rm -rf workfolder
 } &> "${log}"
 
+cd $HOME
+
 clear
 echo -e "${green}As Always thanks for checking out my guides, Please leave a comment if it helped you."
 sleep 10
