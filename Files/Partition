@@ -1,0 +1,59 @@
+#!/bin/bash
+
+log='logger.txt'
+green='\e[1;32m'
+red='\e[0;31m'
+
+clear
+#echo -e "${green} This is a two step Process and will require a reboot."
+#{
+#(echo d; echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/mmcblk0
+#sleep 4
+#} &> "${log}"
+#sleep 10
+
+
+cat <<\EOF > /etc/init.d/resize2fs_once &&
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          resize2fs_once
+# Required-Start:
+# Required-Stop:
+# Default-Start: 2 3 4 5 S
+# Default-Stop:
+# Short-Description: Resize the root filesystem to fill partition
+# Description:
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting resize2fs_once" &&
+    resize2fs /dev/mmcblk0p1 &&
+    rm /etc/init.d/resize2fs_once &&
+    update-rc.d resize2fs_once remove &&
+    log_end_msg $?
+    ;;
+  *)
+    echo "Usage: $0 start" >&2
+    exit 3
+    ;;
+esac
+EOF
+
+chmod +x /etc/init.d/resize2fs_once
+update-rc.d resize2fs_once defaults
+sleep 2
+echo "${green}This is going to take about 8 Minutes on the restart!!"
+sleep 3
+echo "${red}Again please wait, DON'T SHUTDOWN WHILE RESIZING"
+sleep 5
+echo "${green}Ok restarting so give it some time."
+sleep 2
+reboot
+exit 0
+
+
+
+
