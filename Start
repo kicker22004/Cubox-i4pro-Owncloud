@@ -7,7 +7,7 @@ white='\e[1;37m'
 
 Install='./Install'
 Resize='/var/www/owncloud/./resize'
-Partition='./Partition
+Partition='./Partition'
 
 clear
 #Demand Root.
@@ -27,10 +27,10 @@ cd $HOME/workfolder/Files
 #Install or update!.
 echo "1.Install Owncloud."
 echo "2.Change Upload limit"
-echo "3.Expand Your Root (Must do if you haven't yet.)
+echo "3.Expand Your Root (Must do if you haven't yet.)"
 echo -e "${yellow}"
 while true;do
-    read -p "Please select install or upload limit (yes or no)" abc
+    read -p "Please select install or upload limit (1,2 or 3)" abc
     case $abc in
 	 [1] ) echo "${Install}"; tput sgr0; break;;
 	 [2] ) echo "$Resize"; tput sgr0; break;;
