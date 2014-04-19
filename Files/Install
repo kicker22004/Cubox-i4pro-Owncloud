@@ -67,6 +67,6 @@ rm -rf workfolder
 } &> "${log}"
 
 clear
-echo "${green}As Always thanks for checking out my guides, Please leave a comment if it helped you.
+echo "${green}As Always thanks for checking out my guides, Please leave a comment if it helped you."
 sleep 10
 exit 0
