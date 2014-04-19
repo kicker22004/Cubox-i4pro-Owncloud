@@ -27,20 +27,19 @@ mkdir -p /var/www/owncloud
 
 #Grab Needed Files
 echo -e "${yellow}Getting Prerequisites..this will take a bit.."
-{
 sudo apt-get install git nginx openssl ssl-cert php5-cli php5-sqlite php5-gd php5-curl php5-common php5-cgi sqlite3 php-pear php-apc curl libapr1 libtool curl libcurl4-openssl-dev php-xml-parser php5 php5-dev php5-gd php5-fpm memcached php5-memcache varnish
-} &> "${log}"
+clear
 
 echo -e "${yellow}Set Permissions"
 chmod +x Files/Size-Files/* &> "${log}"
 
 #Time for cert keys!
-echo -e "${yellow}Generating openssl key (yes it was updated!)
-{
-sudo openssl req $@ -new -x509 -days 365 -nodes -out /etc/nginx/cert.pem -keyout /etc/nginx/cert.key 
-sudo chmod 600 /etc/nginx/cert.pem
-sudo chmod 600 /etc/nginx/cert.key
-} &> "${log}"
+echo -e "${yellow}Generating openssl key (yes it was updated!)"
+echo -e "${green}"
+(echo US; echo .; echo .; echo .; echo .; echo .; echo .;) | openssl req $@ -new -x509 -days 365 -nodes -out /etc/nginx/cert.pem -keyout /etc/nginx/cert.key 
+chmod 600 /etc/nginx/cert.pem
+chmod 600 /etc/nginx/cert.key
+clear
 
 #Remove and copy over Default Nginx config
 echo -e "${yellow}Move over default files"
@@ -52,16 +51,16 @@ cp Files/php.ini /etc/php5/fpm/php.ini
 
 #Install Owncloud
 echo "${yellow}Installing Owncloud"
-{
 wget http://download.owncloud.org/community/owncloud-6.0.2.tar.bz2
 tar xvf owncloud-6.0.2.tar.bz2
 mv owncloud/ /var/www/
 mv Files/Size-Files/* /var/www/owncloud/
 chown -R www-data:www-data /var/www
-} &> "${log}"
+clear
 
 #Back out and clean up.
 echo "${yellow}Cleaning up"
+sleep 2
 {
 cd $HOME
 rm -rf workfolder
