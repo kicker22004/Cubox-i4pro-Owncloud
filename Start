@@ -39,7 +39,6 @@ while true;do
          [2] ) "${Resize}"; tput sgr0; break;;
          [3] ) "${Partition}"; tput sgr0; break;;
          [EeQq]* ) echo "Thank You For Trying this out!!"; tput sgr0; exit;;
-         * ) echo -e "${red}"; echo "Please Select one of the options or Exit to qu$
+                  * ) echo -e "${red}"; echo "Please Select one of the options or Exit to quit"; echo -e "${yellow}";;
  esac
 done
-
