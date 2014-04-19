@@ -15,14 +15,16 @@ echo -e "${red}"
 while true;do
     read -p "ARE YOU RUNNING THIS AS ROOT? NOT SUDO BUT "ROOT"(yes or no)" yn
     case $yn in
-	 [Yy]* ) echo "Starting Script"; break;;
-	 [Nn]* ) echo "THIS MUST RUN AS ROOT!";tput sgr0; exit;;
-	 * ) echo "Please answer yes or no."; exit;;
+         [Yy]* ) echo "Starting Script"; break;;
+         [Nn]* ) echo "THIS MUST RUN AS ROOT!";tput sgr0; exit;;
+         * ) echo "Please answer yes or no."; exit;;
  esac
 done
 clear
 
-cd $HOME/workfolder/Files
+cd Files
+chmod +x Install
+chmod +x Size-Files/*
 
 #Install or update!.
 echo "1.Install Owncloud."
@@ -32,10 +34,11 @@ echo -e "${yellow}"
 while true;do
     read -p "Please select install or upload limit (1,2 or 3)" abc
     case $abc in
-	 [1] ) echo "${Install}"; tput sgr0; break;;
-	 [2] ) echo "$Resize"; tput sgr0; break;;
-	 [3] ) echo "${Partition}"; tput sgr0; break;;
-	 [EeQq]* ) echo "Thank You For Trying this out!!"; tput sgr0; exit;;
-         * ) echo -e "${red}"; echo "Please Select one of the options or Exit to quit"; echo -e "${yellow}";;
+         [1] ) echo "${Install}"; tput sgr0; break;;
+         [2] ) echo "${Resize}"; tput sgr0; break;;
+         [3] ) echo "${Partition}"; tput sgr0; break;;
+         [EeQq]* ) echo "Thank You For Trying this out!!"; tput sgr0; exit;;
+         * ) echo -e "${red}"; echo "Please Select one of the options or Exit to qu$
  esac
 done
+
