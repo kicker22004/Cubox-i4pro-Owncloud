@@ -45,15 +45,12 @@ EOF
 chmod +x /etc/init.d/resize2fs_once
 update-rc.d resize2fs_once defaults
 sleep 2
-echo "${green}This is going to take about 8 Minutes on the restart!!"
+echo -e "${green} This is going to take about 8 Minutes on the restart!!"
 sleep 3
-echo "${red}Again please wait, DON'T SHUTDOWN WHILE RESIZING"
+echo -e "${red} Again please wait, DON'T SHUTDOWN WHILE RESIZING"
 sleep 5
-echo "${green}Ok restarting so give it some time."
+echo -e "${green} Ok restarting so give it some time."
 sleep 2
 reboot
+tput sgr0
 exit 0
-
-
-
-
