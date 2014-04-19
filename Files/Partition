@@ -5,12 +5,12 @@ green='\e[1;32m'
 red='\e[0;31m'
 
 clear
-#echo -e "${green} This is a two step Process and will require a reboot."
-#{
-#(echo d; echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/mmcblk0
-#sleep 4
-#} &> "${log}"
-#sleep 10
+echo -e "${green} This is a two step Process and will require a reboot."
+{
+(echo d; echo n; echo p; echo 1; echo; echo; echo w) | fdisk /dev/mmcblk0
+sleep 4
+} &> "${log}"
+sleep 10
 
 
 cat <<\EOF > /etc/init.d/resize2fs_once &&
