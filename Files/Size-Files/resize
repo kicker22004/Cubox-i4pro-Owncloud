@@ -10,7 +10,7 @@ DO10G='/var/www/owncloud/./10G'
 DO50G='/var/www/owncloud/./50G'
 
 
-
+clear
 echo -e "${green}"
 echo "1.1G (Go Easy)"
 echo "2.2G (For those that can't be without thier files!)"
