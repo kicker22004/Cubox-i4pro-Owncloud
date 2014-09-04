@@ -53,8 +53,8 @@ sed -i 's/listen =.*/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
 
 #Install Owncloud
 echo -e "${yellow}Installing Owncloud"
-wget http://download.owncloud.org/community/owncloud-6.0.2.tar.bz2
-tar xvf owncloud-6.0.2.tar.bz2
+wget https://download.owncloud.org/community/owncloud-7.0.2.tar.bz2
+tar xvf owncloud*
 mv owncloud/ /var/www/
 mv Size-Files/* /var/www/owncloud/
 chown -R www-data:www-data /var/www
